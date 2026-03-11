@@ -1,0 +1,13 @@
+# Archive of old site versions, scripts, and docs
+_archive/
+
+# Data files
+*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large project subfolders (deployed separately)
+cinemapjbeta/
+japanese-lit-studies/

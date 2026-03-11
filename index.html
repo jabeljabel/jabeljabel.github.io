@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan E. Abel | Comparative Literature & Japanese Studies</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #4a4a4a;
+            --color-accent: #2c5282;
+            --color-accent-hover: #1a365d;
+            --color-border: #e2e8f0;
+            --color-hover: #f7fafc;
+            --font-serif: Georgia, Times New Roman, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-text: #e8e8e8;
+                --color-text-light: #a0a0a0;
+                --color-accent: #60a5fa;
+                --color-accent-hover: #93c5fd;
+                --color-border: #2d3748;
+                --color-hover: #1a202c;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background-color: rgba(15, 20, 25, 0.95);
+            }
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+        }
+
+        .bio {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .bio p {
+            margin-bottom: 1.25rem;
+        }
+
+        .bio a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .bio a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--color-accent);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .hero-links a:hover {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            padding: 1.5rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-card a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .book-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .book-item {
+            display: flex;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-cover {
+            flex-shrink: 0;
+            width: 120px;
+            height: 180px;
+            background-color: var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .books-subsection h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-text-light);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .book-info h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .book-info p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .book-info a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            background-color: var(--color-hover);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .book-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <!-- Analytics: Umami (privacy-friendly, no cookies) -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
+    <!-- Analytics: GoatCounter (lightweight backup) -->
+    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="#" class="nav-brand">Jonathan E. Abel</a>
+        <ul class="nav-links">
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="newcv-updated.html">CV</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Jonathan E. Abel</h1>
+            <p class="title">Professor of Comparative Literature and Japanese Studies<br>Penn State University</p>
+
+            <div class="bio">
+                <p>I am a professor of Comparative Literature and Japanese Studies at Penn State University. I work on how cultural forms—novels, films, emojis, social media fiction—make meaning and, in doing so, reshape the worlds we inhabit. My research focuses on Japanese media, film, and literature, with interests in global modernism, censorship, translation, new media, and cultural theory. My books include <em>The New Real: Media and Mimesis in Japan from Stereographs to Emoji</em> (<a href="https://manifold.umn.edu/projects/the-new-real" target="_blank">University of Minnesota Press</a>, 2023) and <em>Redacted: The Archives of Censorship in Transwar Japan</em> (<a href="https://www.ucpress.edu/books/redacted/hardcover" target="_blank">University of California Press</a>, 2012), which received the Weatherhead East Asia Institute First Book Award.</p>
+
+                <p>My path to Japanese literature was less a single conversion moment than a long drift: late‑night Godzilla and Seven Samurai TV broadcasts in the 1980s, judo classes that didn't quite stick, and an ill‑considered childhood bet involving a spoonful of <a href="https://en.wikipedia.org/wiki/Wasabi" target="_blank">wasabi</a>. After college, two years on the <a href="https://jetprogramusa.org/" target="_blank">JET Program</a> in a small town on Japan's west coast and a multivolume, yellow‑covered bilingual edition of Sherlock Holmes (<a href="https://www.amazon.co.jp/%E3%81%BE%E3%81%A0%E3%82%89%E3%81%AE%E7%B4%90%E3%83%BB%E8%B5%A4%E9%AB%AA%E9%80%A3%E7%9B%9F%E2%80%95%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%AD%E3%83%83%E3%82%AF%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%A0%E3%82%BA%E3%81%AE%E5%86%92%E9%99%BA-%E8%8B%B1%E6%96%87%E5%90%8D%E4%BD%9C%E5%8F%8C%E6%9B%B8-%E3%82%A2%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%BB%E3%82%B3%E3%83%8A%E3%83%B3%E3%83%BB%E3%83%89%E3%82%A4%E3%83%AB/dp/4870970066" target="_blank">example volume</a>) taught me to read across languages; later, making <a href="https://www.nytimes.com/1998/10/11/nyregion/new-yorkers-co-famous-in-tokyo-if-not-here.html" target="_blank">Japanese TV commercials</a> in New York and Los Angeles deepened my interest in media and film.</p>
+
+                <p>I still think of myself as an "eternal student," and my favorite classes are the ones where students build things—arguments, stories, reshot film scenes—that transform how we all understand the texts and images in front of us. At heart, I'm trying to show that cultural products are not just entertainment but tools for grasping how the world works. Words can wound or console, films can unsettle or reassure, interfaces and buildings can quietly shape how safe or seen we feel. Comparative Literature, with its boundary‑breaking, hard‑to‑pin‑down nature, and Asian Studies, with its continual ability to get me to think outside of my own upbringing, are my homes for thinking about how cultural forms travel, echo, repeat with a difference, and construct our social world—even now, in a moment marked by pandemics, strife, AI, and rapid media change.</p>
+            </div>
+
+            <div class="hero-links">
+                <a href="https://scholar.google.com/citations?user=lgCxO7YAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="mailto:jea17@psu.edu">Email</a>
+                <a href="newcv-updated.html">Full CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <h2>Current Research</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>CineMAP Japan</h3>
+                <p>A digital project that geotags and visualizes film locations to reveal how space matters and what places mean for cinema.</p>
+                <a href="https://jabeljabel.github.io/cinemapjbeta/" target="_blank">Learn more →</a>
+            </div>
+            <div class="project-card">
+                <h3>State of the Field</h3>
+                <p>A quantitative network analysis of Japanese Literary Studies as an academic discipline—tracing dissertation networks, conference data, and citation patterns across 7,900+ dissertations and 5,100+ scholars.</p>
+                <a href="https://jabeljabel.github.io/japanese-lit-studies/" target="_blank">Explore visualizations →</a>
+            </div>
+            <div class="project-card">
+                <h3>Social Media Fiction</h3>
+                <p>Examines microfiction posted on Twitter and Instagram as test cases for policies about tagging fake news on social media.</p>
+            </div>
+            <div class="project-card">
+                <h3>Book in Progress</h3>
+                <p><em>Subtitling the World: Fake News, Fictional Truth, and Social Media</em> explores how literature is changing the world today through micro-blog platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="books">
+        <h2>Books</h2>
+
+        <div class="books-subsection">
+            <h3>Monographs</h3>
+            <div class="book-list">
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/newreal.jpg" alt="The New Real book cover"></div>
+                    <div class="book-info">
+                        <h3>The New Real: Media and Mimesis in Japan from Stereographs to Emoji</h3>
+                        <p>University of Minnesota Press, 2023</p>
+                        <a href="https://manifold.umn.edu/projects/the-new-real" target="_blank">Read Open Access →</a>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/redacted.jpg" alt="Redacted book cover"></div>
+                    <div class="book-info">
+                        <h3>Redacted: The Archives of Censorship in Transwar Japan</h3>
+                        <p>University of California Press, 2012. Winner, Weatherhead East Asia Institute First Book Award</p>
+                        <a href="https://www.ucpress.edu/books/redacted/hardcover" target="_blank">View at UC Press →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="books-subsection">
+            <h3>Edited Volumes</h3>
+            <div class="book-list">
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/MJLS.jpg" alt="Modern Japanese Literary Studies book cover"></div>
+                    <div class="book-info">
+                        <h3>Modern Japanese Literary Studies</h3>
+                        <p>Co-edited with Seth Jacobowitz. University of Michigan Press, 2026</p>
+                        <a href="https://press.umich.edu/Books/M/Modern-Japanese-Literary-Studies2" target="_blank">View at U of Michigan Press →</a>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/NAKara.jpg" alt="The End of Modern Literature book cover"></div>
+                    <div class="book-info">
+                        <h3>Kojin Karatani's The End of Modern Literature</h3>
+                        <p>Co-edited with Yoshiki Tajiri &amp; Hiroki Yoshikuni. Verso, forthcoming 2026</p>
+                        <a href="https://www.penguinrandomhouse.com/books/831150/the-end-of-modern-literature-by-kojin-karatani/" target="_blank">View at Verso →</a>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/infokey.jpg" alt="Information Keywords book cover"></div>
+                    <div class="book-info">
+                        <h3>Information: Keywords</h3>
+                        <p>Co-edited with Samuel Frederick &amp; Michele Kennerly. Columbia University Press, 2021</p>
+                        <a href="https://cup.columbia.edu/book/information/9780231198776" target="_blank">View at Columbia UP →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="books-subsection">
+            <h3>Translations</h3>
+            <div class="book-list">
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/NAKara.jpg" alt="Nation and Aesthetics book cover"></div>
+                    <div class="book-info">
+                        <h3>Nation and Aesthetics</h3>
+                        <p>By Kojin Karatani. Co-translated with Hiroki Yoshikuni &amp; Darwin Tsen. Oxford University Press, 2017</p>
+                        <a href="https://global.oup.com/academic/product/nation-and-aesthetics-9780190622978" target="_blank">View at Oxford UP →</a>
+                    </div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="assets/img/otaku.jpg" alt="Otaku book cover"></div>
+                    <div class="book-info">
+                        <h3>Otaku: Japan's Database Animals</h3>
+                        <p>By Hiroki Azuma. Co-translated with Shion Kono. University of Minnesota Press, 2009</p>
+                        <a href="http://www.amazon.com/Otaku-Database-Animals-Hiroki-Azuma/dp/0816653526" target="_blank">View on Amazon →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teaching">
+        <h2>Teaching</h2>
+        <p>I teach courses on Japanese literature, media studies, comparative literature, and translation. My favorite classes are the ones where students build things—arguments, stories, reshot film scenes—that transform how we all understand the texts and images in front of us.</p>
+
+        <h3>Recent Courses</h3>
+        <ul style="list-style-position: inside; color: var(--color-text-light); margin-left: 1rem;">
+            <li>Japanese Film and New Media</li>
+            <li>The World of Banned Books</li>
+            <li>Virtual Worlds</li>
+            <li>Contemporary Theory: Mimesis</li>
+            <li>What is Ecocriticism?</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:jea17@psu.edu">jea17@psu.edu</a></p>
+            <p><strong>Office:</strong> Department of Comparative Literature, Penn State University</p>
+            <p><strong>Links:</strong> 
+                <a href="https://scholar.google.com/citations?user=lgCxO7YAAAAJ&hl=en" target="_blank">Google Scholar</a> | 
+                <a href="newcv-updated.html">Full CV</a>
+            </p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Jonathan E. Abel. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

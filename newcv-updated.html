@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jonathan E. Abel - Curriculum Vitae</title>
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-light: #4a4a4a;
+      --color-accent: #2c5282;
+      --color-border: #e2e8f0;
+      --color-hover: #f7fafc;
+      --font-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #0f1419;
+        --color-text: #e8e8e8;
+        --color-text-light: #a0a0a0;
+        --color-accent: #60a5fa;
+        --color-border: #2d3748;
+        --color-hover: #1a202c;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: var(--font-sans);
+      line-height: 1.6; 
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+
+    /* Sticky Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav {
+        background-color: rgba(15, 20, 25, 0.95);
+      }
+    }
+
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      justify-content: center;
+    }
+
+    nav li {
+      display: inline-block;
+    }
+
+    nav a {
+      color: var(--color-text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      display: block;
+      padding: 0.25rem 0.5rem;
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    /* Header with name/title */
+    .cv-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .cv-header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-header .title {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      margin-bottom: 1rem;
+    }
+
+    .cv-header .contact {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+    }
+
+    .cv-header .contact a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .cv-header .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content area */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* CRITICAL FIX: scroll-margin-top ensures headings appear above sticky nav */
+    h2 { 
+      border-bottom: 2px solid var(--color-accent); 
+      padding-bottom: 0.5rem; 
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      font-size: 1.5rem;
+      scroll-margin-top: 100px;  /* THIS IS THE KEY FIX */
+    }
+
+    h3 { 
+      margin-top: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      font-size: 1.2rem;
+      scroll-margin-top: 100px;  /* Also fix h3 */
+    }
+
+    h4 { 
+      margin-top: 1.25rem; 
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      scroll-margin-top: 100px;  /* Also fix h4 */
+    }
+
+    ul.cv-list { 
+      list-style: none; 
+      padding-left: 0; 
+    }
+
+    ul.cv-list li { 
+      position: relative; 
+      padding-left: 1.5rem; 
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    ul.cv-list li::before { 
+      content: "•"; 
+      position: absolute; 
+      left: 0; 
+      top: 0.1rem; 
+      color: var(--color-accent); 
+      font-weight: bold;
+    }
+
+    .section-block { 
+      scroll-margin-top: 100px; 
+    }
+
+    a { 
+      color: var(--color-accent); 
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover { 
+      opacity: 0.8;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--color-accent);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-size: 1.5rem;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content { padding: 1rem; }
+      .cv-header { padding: 2rem 1rem 1.5rem; }
+      .cv-header h1 { font-size: 2rem; }
+      h2 { font-size: 1.3rem; }
+      nav a { font-size: 0.85rem; }
+      nav ul { justify-content: flex-start; }
+    }
+
+    /* Print styles */
+    @media print {
+      body { padding: 0; }
+      .content { max-width: 100%; font-size: 11pt; padding: 0; }
+      nav, .back-to-top { display: none; }
+      .cv-header { padding: 1rem 0; }
+      a { color: #000; text-decoration: underline; }
+      h2 { page-break-after: avoid; }
+    }
+  </style>
+  <!-- Analytics: Umami (privacy-friendly, no cookies) -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
+  <!-- Analytics: GoatCounter (lightweight backup) -->
+  <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<!-- Sticky Navigation Bar with FIXED LINKS -->
+<nav>
+  <div class="nav-container">
+    <ul>
+      <li><a href="#positions">Positions</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#articles-chapters">Articles</a></li>
+      <li><a href="#coauthored-articles">Co-authored</a></li>
+      <li><a href="#posts-reviews">Reviews</a></li>
+      <li><a href="#invited-talks">Invited Talks</a></li>
+      <li><a href="#conference-talks">Conferences</a></li>
+      <li><a href="#courses-taught">Courses</a></li>
+      <li><a href="#awards-grants">Awards</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="Jonathan-Abel-Academic-Site-FIXED.html">Home</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CV Header -->
+<div class="cv-header">
+  <h1>Jonathan E. Abel</h1>
+  <p class="title">Professor of Comparative Literature and Japanese Studies</p>
+  <p class="contact">
+    Penn State University | 
+    <a href="mailto:jea17@psu.edu">jea17@psu.edu</a> | 
+    <a href="https://scholar.google.com/citations?user=lgCxO7YAAAAJ&hl=en" target="_blank">Google Scholar</a>
+  </p>
+</div>
+
+<div class="content">
+<h2 id="positions" class="section-block">Positions Held</h2>
+
+<h4><strong>Pennsylvania State University</strong>, <em>Departments of Comparative Literature and Asian Studies</em></h4>
+<ul class="cv-list">
+  <li><strong>2024–present.</strong> Professor.</li>
+  <li><strong>2014–2024.</strong> Associate Professor.</li>
+  <li><strong>2008–2014.</strong> Assistant Professor.</li>
+</ul>
+
+<h4><strong>Smithsonian Institution</strong>, <em>Woodrow Wilson International Center for Scholars</em></h4>
+<ul class="cv-list">
+  <li><strong>2022–2023.</strong> Research Fellow, Asia and Science and Technology Innovation Programs.</li>
+</ul>
+
+<h4><strong>Harvard University</strong>, <em>Reischauer Institute of Japanese Studies</em></h4>
+<ul class="cv-list">
+  <li><strong>2008–2009.</strong> Postdoctoral Fellow.</li>
+</ul>
+
+<h4><strong>Bowling Green State University</strong>, <em>Department of German, Russian, and East Asian Languages</em></h4>
+<ul class="cv-list">
+  <li><strong>2006–2008.</strong> Assistant Professor.</li>
+</ul>
+
+<h4><strong>Columbia University</strong>, <em>Weatherhead East Asian Institute</em></h4>
+<ul class="cv-list">
+  <li><strong>2005–2006.</strong> Postdoctoral Fellow.</li>
+</ul>
+
+<h4><strong>Manhattanville College</strong>, <em>East Asian Studies</em></h4>
+<ul class="cv-list">
+  <li><strong>Spring 2004.</strong> Lecturer.</li>
+</ul>
+
+<h4><strong>Rutgers University</strong>, <em>East Asian Studies</em></h4>
+<ul class="cv-list">
+  <li><strong>Fall 1999.</strong> Lecturer.</li>
+</ul>
+
+<h2 id="education" class="section-block">Education</h2>
+<ul class="cv-list">
+  <li>
+    <strong>Princeton University</strong>, Graduate School, 1998–2005.<br>
+    Ph.D. Comparative Literature (2005), M.A. Comparative Literature (2001).
+  </li>
+  <li>
+    <strong>University of Tokyo</strong>, Dept. of Information and Linguistic Sciences, 2002–2003.<br>
+    Graduate Researcher.
+  </li>
+  <li>
+    <strong>Columbia University</strong>, Graduate School of Arts and Sciences, 1996–1997.<br>
+    M.A. (1997), English and Comparative Literature.
+  </li>
+  <li>
+    <strong>University of Pennsylvania</strong>, School of Arts and Sciences, 1989–1993.<br>
+    B.A. (1993) with honors in English; Double Major in English and International Relations.
+  </li>
+</ul>
+
+<p><strong>Languages:</strong> English, Japanese, French (Reading), German (Reading).</p>
+
+<h2 id="publications" class="section-block">Publications</h2>
+
+<h3>Book in Progress</h3>
+<p>
+  <em>Subtitling the World: Fake News, Fictional Truth, and Social Media</em> explains how literature is changing the world today. Amidst the rise of social media platforms both as primary news sources and as super-spreaders of viral conspiracy theories, fiction posted on micro-blogs reflects the way platforms encourage creative participatory endeavors that can remake worldviews and ideologies without regard to fact. Because fictional truth resides at the intersection of lies and facts, micro-literature (flash fiction and poetry) can reveal much about how social media not only represents the world but also transforms it. This project delves into the rich archive of Japanese-language micro-blog literature over the last decade, tracking the impact of the literary during social anxiety and crisis to understand the function of fiction in shaping political opinion and public conceptions of truth.
+</p>
+
+<h3>Books</h3>
+<ul class="cv-list">
+  <li>
+    <em><a href="https://manifold.umn.edu/projects/the-new-real" target="_blank">The New Real: Media and Mimesis in Japan from Stereographs to Emoji</a></em>.
+    Minneapolis: University of Minnesota Press, 2023.
+  </li>
+  <li>
+    <em><a href="https://www.ucpress.edu/books/redacted/hardcover" target="_blank">Redacted: The Archives of Censorship in Transwar Japan</a></em>.
+    A Study of the Weatherhead East Asia Institute. Asia Pacific Modern.
+    Berkeley: University of California Press, 2012. Winner of Columbia University's Weatherhead East Asia Institute's First Book Award.
+  </li>
+</ul>
+
+<h3>Digital Tool</h3>
+<ul class="cv-list">
+  <li>
+    Developer of <em><a href="https://japanpastandpresent.org/en/projects/cinemap-japan/about" target="_blank">CineMAP Japan Beta</a></em>.
+    Japan Past and Present website (Yannai Initiative, UCLA and Waseda University).
+  </li>
+</ul>
+
+<h3>Editing</h3>
+
+<h4>Book Series</h4>
+<ul class="cv-list">
+  <li>
+    Series Editor (with Rahul Mukherjee and Cheryll Ruth Soriano),
+    <em><a href="https://upittpress.org/series/power-currents-asian-media-in-the-world/" target="_blank">Power Currents: Asian Media in the World</a></em>,
+    University of Pittsburgh Press.
+  </li>
+</ul>
+
+<h4>Books</h4>
+<ul class="cv-list">
+  <li>
+    Co-editor (with Yoshiki Tajiri and Hiroki Yoshikuni),
+    <em><a href="https://www.penguinrandomhouse.com/books/831150/the-end-of-modern-literature-by-kojin-karatani/" target="_blank">Kojin Karatani's The End of Modern Literature</a></em>,
+    forthcoming, 2026.
+  </li>
+  <li>
+    Co-editor (with Seth Jacobowitz),
+    <em><a href="https://press.umich.edu/Books/M/Modern-Japanese-Literary-Studies2" target="_blank">Modern Japanese Literary Studies</a></em>.
+    Ann Arbor: University of Michigan Press, 2026.
+  </li>
+  <li>
+    Co-editor (with Samuel Frederick and Michele Kennerly),
+    <em><a href="https://cup.columbia.edu/book/information/9780231198776" target="_blank">Information: Keywords</a></em>, volume 2 of the two-volume
+    <em>Information</em> set comprised by <em>Reader</em> and <em>Keywords</em> in Humanistic Studies of Information series,
+    general editor Eric Hayot. New York: Columbia University Press, 2021.
+  </li>
+</ul>
+
+<h4>Journals</h4>
+<ul class="cv-list">
+  <li>
+    Co-editor (with Joseph Jeyeon), special issue
+    <em><a href="https://muse.jhu.edu/issue/45094" target="_blank">Digital Asia/s</a></em>,
+    <em>Verge: Studies in Global Asias</em> 7:2 (Fall 2021).
+  </li>
+  <li>
+    Co-editor (with Charlotte Eubanks), special issue
+    <em><a href="https://muse.jhu.edu/issue/45017" target="_blank">Collecting Asia/s</a></em>,
+    <em>Verge: Studies in Global Asias</em> 1:2 (2015).
+  </li>
+  <li>
+    Editor, special issue
+    <em><a href="https://www.tandfonline.com/toc/rjfo20/26/3" target="_blank">Beyond Fukushima: Ethics and Ideas for a Post-Disaster Japan</a></em>,
+    <em>Japan Forum</em> 26:3 (2014).
+  </li>
+</ul>
+
+<h3>Translations</h3>
+<ul class="cv-list">
+  <li>
+    <a href="https://global.oup.com/academic/product/nation-and-aesthetics-9780190622978?cc=us&lang=en#" target="_blank">
+      Critical introduction and co-translation with Hiroki Yoshikuni and Darwin Tsen of Karatani Kōjin's 2004
+      <em>Nēshon to bigaku</em> (<em>Nation and Aesthetics</em>)
+    </a>
+    (Oxford University Press, 2017).
+  </li>
+  <li>
+    Co-translation of Azuma Hiroki's essay following the 3–11 disasters in Japan,
+    "<a href="https://www.nytimes.com/2011/03/17/opinion/17azuma.html" target="_blank">For a Change, Proud to Be Japanese</a>,"
+    Opinion page of <em>The New York Times</em>, March 16, 2011.
+  </li>
+  <li>
+    <a href="http://www.amazon.com/Otaku-Database-Animals-Hiroki-Azuma/dp/0816653526" target="_blank">
+      Translation and introduction of Azuma Hiroki's 2001 <em>Dōbutsuka suru posutomodan</em> (<em>Otaku: Japan's Database Animals</em>) with Shion Kono
+    </a>
+    (Minnesota: University of Minnesota Press, 2009). 144 pages.
+  </li>
+</ul>
+
+<h3 id="articles-chapters" class="section-block">Articles and Chapters</h3>
+<ul class="cv-list">
+
+  <li>
+    "AI Novels and the New Real: How literature ends with new modes of exchange," in
+    <em><a href="https://www.penguinrandomhouse.com/books/831150/the-end-of-modern-literature-by-kojin-karatani/" target="_blank" rel="noopener noreferrer">Kojin Karatani's The End of Modern Literature</a></em>,
+    eds. Hiroki Yoshikuni, Jonathan E. Abel, and Yoshiki Tajiri (Verso), forthcoming 2026.
+  </li>
+
+  <li>
+    "Parody as Pastiche, Pastiche as Parody: The Global Jewish Humor Cabal or the Cancellation of a Holocaust Joke in Japan," in
+    <em><a href="https://wsupress.wayne.edu/9780814352595/" target="_blank" rel="noopener noreferrer">Wit Happens: Global Jewish Humor</a></em>,
+    eds. Jennifer Caplan, Avi Patt, and Tanny Jarrod (Wayne State University Press), forthcoming 2026.
+  </li>
+
+  <li>
+    "Insutanto guramu obu yua desu hakku: Terayama Shūji e no nanatsū no (henshin suru kotoba wa dekinai hazu no) tegami," in
+    <em><a href="https://jpsearch.go.jp/item/bibnl-24131428" target="_blank" rel="noopener noreferrer">Terayama Shūji no "shitsumon" o toinausu</a></em>,
+    eds. Horie and Hanajiri (Tokyo: Kagaku kenkyū-hikatsudō hōkoku-sho, 2025), 34–50.
+  </li>
+
+  <li>
+    "Hedorah vs. Hyperobject: Or, Why Smog Monsters Are Real and We Must Object to Object Oriented Ontologies," in
+    <em><a href="https://cup.columbia.edu/book/eco-disasters-in-japanese-cinema/9781952636509/" target="_blank" rel="noopener noreferrer">Eco Disasters in Japanese Cinema</a></em>,
+    ed. Rachel DiNitto (Asia Shorts / Columbia University Press, 2024).
+  </li>
+
+  <li>
+    <a href="https://online.ucpress.edu/jjs/article-abstract/50/2/323/202959/Through-the-Butterfly-WindowA-Japanese-Media?redirectedFrom=fulltext" target="_blank" rel="noopener noreferrer">"Through the Madame Butterfly Window: A Japanese Media Entomology,"</a>
+    <em>Journal of Japanese Studies</em> 50:2 (Summer 2024): 323–352.
+  </li>
+
+  <li>
+    <a href="https://journals.library.brandeis.edu/index.php/PAJLS/article/view/2341/" target="_blank" rel="noopener noreferrer">"In Memoriam of Sari Kawana: Miyabe Miyuki's New Media Theory,"</a>
+    <em>Proceedings of the Association of Japanese Literary Studies</em> (PAJLS) 23 (2024): 28–39.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.3390/literature3030021" target="_blank" rel="noopener noreferrer">"Media as Metaphor: Realism in Meiji Print Narratives and Visual Cultures,"</a>
+    <em>Literature</em> 3:3 (2023): 313–326.
+  </li>
+
+  <li>
+    "Novelvirus Viral Novels and the Irony Poisoning of Social Media Engagement," in
+    <em><a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9781003341154-10/novel-virus-viral-novels-irony-poisoning-social-media-engagement-jonathan-abel" target="_blank" rel="noopener noreferrer">The Coronavirus Pandemic in Japanese Literature and Popular Culture</a></em>,
+    ed. Mina Qiao (New York: Routledge, 2023), 144–154.
+  </li>
+
+  <li>
+    "Introduction: Information + Humanities," with Samuel Frederick and Michele Kennerly, in
+    <em><a href="https://cup.columbia.edu/book/information/9780231198776" target="_blank" rel="noopener noreferrer">Information: Keywords</a></em>
+    (New York: Columbia University Press, 2021), 1–16.
+  </li>
+
+  <li>
+    "Not Everyone 💩s: Or, The Question of Emoji as Universal Expression," in
+    <em><a href="https://www.taylorfrancis.com/books/edit/10.4324/9780429491757/emoticons-kaomoji-emoji-elena-giannoulis-lukas-wilde" target="_blank" rel="noopener noreferrer">Emoticons, Kaomoji, and Emoji: The Transformation of Communication in the Digital Age</a></em>,
+    eds. Elena Giannoulis and Lukas R.A. Wilde (New York: Routledge, 2019), 25–43.
+  </li>
+
+  <li>
+    "Big Data," in
+    <em><a href="https://www.taylorfrancis.com/books/edit/10.4324/9781315227405/futures-comparative-literature-ursula-heise" target="_blank" rel="noopener noreferrer">Futures of Comparative Literature</a></em>,
+    ed. Ursula K. Heise (New York: Routledge, 2017), 267–270.
+  </li>
+
+  <li>
+    "Preface: One Karatani, Indivisible," in Karatani Kōjin,
+    <em><a href="https://global.oup.com/academic/product/nation-and-aesthetics-9780190622978?cc=us&lang=en" target="_blank" rel="noopener noreferrer">Nation and Aesthetics</a></em>
+    (New York: Oxford University Press, 2017), vii–xviii.
+  </li>
+
+  <li>
+    "Japanese Twitterature: Global Media, Formal Innovation, Cultural Différance," in
+    <em><a href="https://www.routledge.com/Routledge-Handbook-of-Modern-Japanese-Literature/Hutchinson-Morton/p/book/9780367355739" target="_blank" rel="noopener noreferrer">Routledge Handbook of Modern Japanese Literature</a></em>,
+    eds. Rachael Hutchinson and Leith Morton (New York: Routledge, 2016), 328–341.
+  </li>
+
+  <li>
+    "Freedom of Expression and Cultural Production in the Age of Vanishing Privacy," in
+    <em><a href="https://www.taylorfrancis.com/books/edit/10.4324/9781315778372/routledge-companion-literature-human-rights-sophia-mcclennen-alexandra-schultheis-moore" target="_blank" rel="noopener noreferrer">The Routledge Companion to Literature and Human Rights</a></em>,
+    eds. Sophia McClennen and Alexandra Schultheis Moore (New York: Routledge, 2015), 459–471.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1080/09555803.2014.916337" target="_blank" rel="noopener noreferrer">"The Measure of Waves,"</a>
+    <em>Japan Forum</em> 26:3 (2014): 297–305.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1080/09555803.2014.900512" target="_blank" rel="noopener noreferrer">"Masked Justice: Allegories of the Superhero in Cold War Japan,"</a>
+    <em>Japan Forum</em> 26:2 (2014): 187–208.
+  </li>
+
+  <li>
+    <a href="https://muse.jhu.edu/article/538951/summary" target="_blank" rel="noopener noreferrer">"Redactionary Global Modernism: Kisses in Imperial Japan,"</a>
+    <em>Modernism/Modernity</em> 21:1 (2014): 201–229.
+  </li>
+
+  <li>
+    <a href="https://prj-m20th.w.waseda.jp/magazine/index.html" target="_blank" rel="noopener noreferrer">
+      "Nihon no kisu ken'etsu ni miru senzen sengo rejīmu no renzokusei: seppun hyōshō no tagisei"
+      (Wartime and Postwar Regime Continuity as Seen through the Censorship of Japanese Kisses: The Polysemy of Images of Osculation and the Monologic Censor),
+    </a>
+    <em>Intelligence</em> 14 (2014): 87–102.
+  </li>
+
+  <li>
+    <a href="https://read.dukeupress.edu/comparative-literature/article-abstract/65/4/466/7950/Personification-and-a-Trope-of-Writing" target="_blank" rel="noopener noreferrer">"Personification and a Trope of Writing,"</a>
+    <em>Comparative Literature</em> 65:4 (Fall 2013): 466–486.
+  </li>
+
+  <li>
+    <a href="https://kw.maruzen.co.jp/ln/poetica/contents.html" target="_blank" rel="noopener noreferrer">"Gulliver in Japan in <em>Gulliver's</em> in Japan: Or, How to Translate the Nation as Virtual, Possible, and Embedded,"</a>
+    <em>Poetica</em> 78 (special issue Translation/Transmediation, ed. Atsuko Sakaki, December 2012): 69–96.
+  </li>
+
+  <li>
+    "Seditious Obscenity/Obscene Seditions," in
+    <em><a href="https://www.routledge.com/Negotiating-Censorship-in-Modern-Japan/Hutchinson/p/book/9781138934719" target="_blank" rel="noopener noreferrer">Negotiating Censorship in Modern Japan</a></em>,
+    ed. Rachael Hutchinson (New York: Routledge, 2012), 35–58.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1111/j.1475-6781.2011.01148.x" target="_blank" rel="noopener noreferrer">"Can Cool Japan save Post-Disaster Japan? On the Possibilities and Impossibilities of a Cool Japanology,"</a>
+    <em>Journal of Japanese Sociology</em> (Fall 2011): 59–72.
+  </li>
+
+  <li>
+    "Kūru Japanolojī no kanōsei to hikanōsei" (The Possibilities and Impossibilities of a Cool Japanology), in
+    <em><a href="https://www.nhk-book.co.jp/detail/000000911632010.html" target="_blank" rel="noopener noreferrer">Nihonteki sōzōryoku no mirai: Kūru Japanolojī</a></em>,
+    ed. Azuma Hiroki (Tokyo: NHK Books, 2010), 135–160.
+  </li>
+
+  <li>
+    "Packaging Desires: The Unmentionables of Japanese Film," in
+    <em><a href="https://www.routledge.com/Perversion-and-Modern-Japan-Psychoanalysis-Literature-Culture/Cornyetz-Vincent/p/book/9780415691437" target="_blank" rel="noopener noreferrer">Perversion and Modern Japan: Psychoanalysis, Literature, Culture</a></em>,
+    eds. Nina Cornyetz and J. Keith Vincent (New York: Routledge, 2009), 272–307.
+  </li>
+
+  <li>
+    "Nakano Shigeharu 'Seiji to geijutsu'—fuseji honbun to sono fukugen"
+    (Nakano Shigeharu's "Politics and Art": The Redacted Original and Subsequent Restorations),
+    with Yokote Kazuhiko, <em>Bungaku Hihyō Josetsu</em> (Explications, Literary Criticism) 3:4 (November 2009): 138–149.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1080/09555800701580022" target="_blank" rel="noopener noreferrer">"The Ero-Puro Sense: Declassifying Censored Literature from Interwar Japan,"</a>
+    <em>Japan Forum</em> 19:3 (2007): 341–367.
+  </li>
+
+  <li>
+    <a href="https://www.jstor.org/stable/40247461" target="_blank" rel="noopener noreferrer">"Canon and Censor: How War Wounds Bodies of Writing,"</a>
+    <em>Comparative Literature Studies</em> 42:1 (Winter 2005): 74–93.
+  </li>
+
+  <li>
+    "Translation as Community: The Opacity of Modernizations of <em>Genji monogatari</em> (Tales of Genji)," in
+    <em><a href="https://press.princeton.edu/books/paperback/9780691116099/nation-language-and-the-ethics-of-translation" target="_blank" rel="noopener noreferrer">Nation, Language, and the Ethics of Translation</a></em>,
+    eds. Sandra Bermann and Michael Wood (Princeton: Princeton University Press, 2005), 146–158.
+  </li>
+
+  <li>
+    <a href="https://journals.library.brandeis.edu/index.php/PAJLS/article/view/1135" target="_blank" rel="noopener noreferrer">"Archiving the Forbidden: War Responsibilities and Censored Literature,"</a>
+    <em>Hermeneutical Strategies: Methods of Interpretation in the Study of Japanese Literature</em> (PAJLS 5, 2004): 421–444.
+  </li>
+
+  <li>
+    <a href="https://intellectdiscover.com/content/journals/10.1386/ac.12.2.72_1" target="_blank" rel="noopener noreferrer">
+      "Different from Difference: Rereading <em>Kurutta Ippeiji</em> (A Page of Madness),"
+    </a>
+    <em>Asian Cinema</em> 12:5 (Fall 2001): 72–96.
+  </li>
+
+</ul>
+
+<h3 id="coauthored-articles" class="section-block">Co-authored Articles</h3>
+<ul class="cv-list">
+
+  <li>
+    "Introduction: Stating the Field," with Seth Jacobowitz, in
+    <em><a href="https://press.umich.edu/Books/M/Modern-Japanese-Literary-Studies2" target="_blank" rel="noopener noreferrer">Modern Japanese Literary Studies</a></em>.
+    Ann Arbor: University of Michigan Press, 2026.
+  </li>
+
+  <li>
+    <a href="https://muse.jhu.edu/article/807897" target="_blank" rel="noopener noreferrer">"Unfolding Digital Asias,"</a>
+    with Joseph Jonghyun Jeon, <em>Verge: Studies in Global Asias</em> 7:2 (Fall 2021): vi–xxii.
+  </li>
+
+  <li>
+    <a href="https://muse.jhu.edu/article/595996" target="_blank" rel="noopener noreferrer">"The Utility of Aesthetics: Exhibition, Pedagogy, and Critical Questions for Postcolonialism,"</a>
+    with Christopher Reed, <em>Verge: Studies in Global Asias</em> 1:2 (Fall 2015): 42–58.
+  </li>
+
+  <li>
+    <a href="https://muse.jhu.edu/article/595992" target="_blank" rel="noopener noreferrer">"Of Asian Boxes…,"</a>
+    with Charlotte Eubanks, <em>Verge: Studies in Global Asias</em> 1:2 (Fall 2015): vii–xv.
+  </li>
+
+</ul>
+
+<h3 id="posts-reviews" class="section-block">Posts, Reviews, Interviews, and Encyclopedia Entries</h3>
+<ul class="cv-list">
+
+  <li>
+    Review: <em>Confluence and Conflict: Reading Transwar Japanese Literature and Thought</em> by Brian Hurley, for <em>Modern Fiction Studies</em> (MFS) 71 (2025).
+  </li>
+
+  <li>
+    Review: <em>Powers of the Real: Cinema, Gender, and Emotion in Interwar Japan</em> by Diane Wei Lewis, for <em>Journal of Cinema and Media Studies</em> (JCMS) 62.2 (Winter 2023): 190–194.
+  </li>
+
+  <li>
+    <a href="https://read.dukeupress.edu/modern-language-quarterly/article/83/1/124/294328/Figures-of-the-World-The-Naturalist-Novel-and?guestAccessKey=ac95d113-0489-4dcd-8471-3bcd852a3fa5" target="_blank" rel="noopener noreferrer">Review: <em>Figures of the World: The Naturalist Novel and Transnational Form</em> by Christopher L. Hill,</a>
+    <em>Modern Language Quarterly</em> (MLQ): A Journal of Literary History 83.1 (March 2022): 124–127.
+  </li>
+
+  <li>
+    <a href="https://jll.pitt.edu/ojs/JLL/article/view/229/387" target="_blank" rel="noopener noreferrer">Review: <em>The Typographic Imagination: Reading and Writing in Japan's Modern Print Media</em> by Nathan Shockey,</a>
+    <em>Japanese Language and Literature</em> (JLL) 55, no. 2 (October 2021).
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1353/jjs.2021.0048" target="_blank" rel="noopener noreferrer">Review: <em>Otaku and the Struggle for Imagination in Japan</em> by Patrick W. Galbraith,</a>
+    <em>Journal of Japanese Studies</em> 47:2 (Winter 2021): 437–442.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1353/mni.2019.0038" target="_blank" rel="noopener noreferrer">Review: <em>The Uses of Literature in Modern Japan: Histories and Cultures of the Book</em> by Sari Kawana,</a>
+    <em>Monumenta Nipponica</em> 74:2 (2019): 307–312.
+  </li>
+
+  <li>
+    <a href="https://www.cambridge.org/core/journals/journal-of-asian-studies/article/writing-technology-in-meiji-japan-a-media-history-of-modern-japanese-literature-and-visual-culture-by-seth-jacobowitz-cambridge-mass-harvard-university-asia-center-2015-xii-299-pp-isbn-9780674088412-cloth/2AEDA9DBD2B4296AC46899FB8B0070D5" target="_blank" rel="noopener noreferrer">Review: <em>Writing Technology in Meiji Japan: A Media History of Modern Japanese Literature and Visual Culture</em> by Seth Jacobowitz,</a>
+    <em>Journal of Asian Studies</em> (March 2019): 206–208.
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1353/jjs.2016.0029" target="_blank" rel="noopener noreferrer">Review: <em>The Youth of Things: Life and Death in the Age of Kajii Motojirō</em> by Stephen Dodd,</a>
+    <em>Journal of Japanese Studies</em> 42:2 (2016): 453–458.
+  </li>
+
+  <li>
+    <a href="https://stateofthediscipline.acla.org/entry/big-data" target="_blank" rel="noopener noreferrer">"Ideas of the Decade: Big Data,"</a>
+    State of the Discipline Report, American Comparative Literature Association (April 23, 2014).
+  </li>
+
+  <li>
+    <a href="https://www.rem.routledge.com/" target="_blank" rel="noopener noreferrer">"Edogawa Ranpo" and "Natsume Sōseki,"</a> in <em>Encyclopedia of Modernism</em> (Routledge, 2014).
+  </li>
+
+  <li>
+    <a href="https://doi.org/10.1215/00267929-1723434" target="_blank" rel="noopener noreferrer">Review: <em>Manufacturing Modern Japanese Literature: Publishing, Prizes, and the Ascription of Literary Value</em> by Edward Mack,</a>
+    <em>Modern Language Quarterly</em> 73, Issue 4 (December 2012).
+  </li>
+
+  <li>
+    <a href="https://www.mechademia.net/2011/11/29/anime-review-summer-wars/" target="_blank" rel="noopener noreferrer">"Real World, Virtual World: One World is Enough,"</a>
+    review of <em>Summer Wars</em> by Hosoda Mamoru, <em>Mechademia</em> online (November 29, 2011).
+  </li>
+
+  <li>
+    <a href="https://www.cambridge.org/core/journals/international-journal-of-asian-studies/article/abs/purloined-letters-cultural-borrowing-and-japanese-crime-literature-18681937-by-mark-silver-honolulu-university-of-hawaii-press-2008-pp-xiii-217-isbn-10-0824831888-13-9780824831882-murder-most-modern-detective-fiction-and-japanese-culture-by-sari-kawana-minneapolis-university-of-minnesota-press-2008-pp-x-271-isbn-10-081665025x-13-9780816650255/05CA7022D9CAB5CC1C58EC6285A789F1" target="_blank" rel="noopener noreferrer">Review: <em>Purloined Letters: Cultural Borrowing and Japanese Crime Literature, 1868–1937</em> by Mark Silver and <em>Murder Most Modern: Detective Fiction and Japanese Culture</em> by Sari Kawana,</a>
+    <em>International Journal of Asian Studies</em> 7, no. 1 (2010): 101–105.
+  </li>
+
+  <li>
+    <a href="https://ci.nii.ac.jp/naid/40017285435" target="_blank" rel="noopener noreferrer">"Answers about GHQ and SCAP Related Materials According to Okuizumi Eizaburo,"</a>
+    interview with Okuizumi Eizaburo and Yokote Kazuhiko, published as "Okuizumi Eizaburō shi ni GHQ/SCAP kanren shiryō nado ni tsuite kiku," <em>Bungaku Hihyō Josetsu</em> (Explications, Literary Criticism) III:5 (August 2010): 167–188.
+  </li>
+
+  <li>
+    "Ōe Kenzaburō" and "Etō Jun," in <em><a href="https://www.berkshirepublishing.com/title/encyclopedia-of-modern-asia/" target="_blank" rel="noopener noreferrer">Encyclopedia of Modern Asia</a></em> (New York: Scribner, 2002).
+  </li>
+
+</ul>
+
+<h3 id="invited-talks" class="section-block">Invited Talks</h3>
+<ul class="cv-list">
+
+  <li>
+    "The Crisis of the Humanities and the Future of Japanese Studies: A Book Launch and Conversation," Asian Studies Center, University of Pittsburgh, February 2026.
+  </li>
+
+  <li>
+    "AI and the New Real," <em>Keynote Address: Transforming Foreign Languages: Diversity and Innovation in the World of AI</em>, University of Kentucky, April 2025.
+  </li>
+
+  <li>
+    "AI and the New Real," University of Southern California (USC), March 2025.
+  </li>
+
+  <li>
+    "Media, Marketing, and Mimesis Made in Japan, or Why Nipper Barks in Japanese," Asia Now Speaker Series, University of Pittsburgh, October 2024.
+  </li>
+
+  <li>
+    "From Meta-Data to Contents-Data: Two Examples of How DH Can Transcend Traditional Questions of the Library Sciences," International Seminar: Library and Information Science and Digital Humanities, Keiō University, Tokyo, May 2024.
+  </li>
+
+  <li>
+    "Text and Context: Japanese Film in a Foreign Classroom," Nihon Women's University, Tokyo, 2024.
+  </li>
+
+  <li>
+    "Mojibake Now!" East Asian Department, New York University, April 2024.
+  </li>
+
+  <li>
+    "1971 in Mediated Protest," <em>Political Activism in Japanese Film 1960s to 1970s</em>, The Yoko Mcclain Lecture Series in Japanese Studies, University of Oregon, March 2024.
+  </li>
+
+  <li>
+    "Introducing CineMAP: Visualizing Places of Japanese Film," JapanLAB, University of Texas, Austin, February 2024.
+  </li>
+
+  <li>
+    "Replacement Theory and Singularity in Cold War Japan: Early Visions of Robot Autopoiesis in 1950s Literature," Freie Universität, Berlin, June 28, 2023.
+  </li>
+
+  <li>
+    "Welcome to the New Real: Why Nipper Barks in Japanese," Transdisciplinary Asian Seminar, Robert Penn Warren Center, Vanderbilt University, March 28, 2023.
+  </li>
+
+  <li>
+    Respondent, "East Asian Literature and Dialectical Thinking," <em>MLA 2021</em>, January 2021 [virtual due to COVID-19].
+  </li>
+
+  <li>
+    Chair, "Japanese Diaspora to the Americas: Literature, History, and Identity," International Symposium, Yale University, May 2019.
+  </li>
+
+  <li>
+    "Visualizing Data Sources: The Trouble with CINEmap," <em>Impact of the Digital Workshop</em>, University of Chicago, May 2018.
+  </li>
+
+  <li>
+    "The Big Picture: What We Think We Know About the Field vs. Big Data of Japanese Literature," <em>The Beginnings and Ends of Modern Japanese Literature Workshop</em>, Yale University, April 2018.
+  </li>
+
+  <li>
+    "Hard Rain Falling: Japanese Twitterature and the End of the World," Michigan State University, February 2017.
+  </li>
+
+  <li>
+    "New Media, Mimesis, and the Law: Recording <em>Madame Butterfly</em> in Japan," <em>Access Asia Forum</em>, University of California, Irvine, February 2017.
+  </li>
+
+  <li>
+    "On Collecting Data," <em>Japan Digital Humanities Workshop</em>, University of Chicago, November 2016.
+  </li>
+
+  <li>
+    "Critical Digital Humanism and Japanese Twitterature after 3-11," Japan Forum, <em>Reischauer Institute of Japanese Studies</em>, Harvard University, February 2016.
+  </li>
+
+  <li>
+    "Japanese Twitterature after 3-11: Social Media Fictions and the Subtitle for the Real," <em>Center for Japanese Studies</em>, University of Michigan, November 2015.
+  </li>
+
+  <li>
+    "Not Everyone 💩s: Or, The Question of Universal Expression in Un-Literary Media," <em>Resident Scholars and Artists Lecture Series</em>, Institute for the Arts and Humanities, Penn State, November 2015.
+  </li>
+
+  <li>
+    "<em>The New Real</em>: Media, Marketing, and Mimesis Made in Japan," <em>Kempf Lecture</em>, East Asian Languages and Literatures, Yale University, April 2014.
+  </li>
+
+  <li>
+    "The Remarkable Presence of Kissing in Imperial Japan," Waseda University, Tokyo, July 2013.
+  </li>
+
+  <li>
+    "Virtual Sōseki," Graduate Seminar in East Asian Studies, University of California, Berkeley, September 2012.
+  </li>
+
+  <li>
+    "Kiss and Censor," <em>Munk School of Global Affairs and Asia Pacific Studies Asian Institute</em>, University of Toronto, March 2012.
+  </li>
+
+  <li>
+    "<em>Summer Wars</em>: Superflat, Parallax, and Limits of Cartesian Thought," Notre Dame University, March 2011.
+  </li>
+
+  <li>
+    "The Language of Slaves: Nakano Shigeharu's Redactionary Literature," <em>Asian Pacific Studies Institute Lecture Series</em>, Duke University, November 2010.
+  </li>
+
+  <li>
+    "The Aesthetics of Redaction," <em>East Asian Studies Center Colloquium in conjunction with Department of Comparative Literature</em>, Indiana University, Bloomington, April 2010.
+  </li>
+
+  <li>
+    "Untranslatability, High and Low," <em>Institute for Advanced Study Literary Translation Seminar</em>, Indiana University, Bloomington, April 2010.
+  </li>
+
+  <li>
+    "On the Fringe of Cool Japan: The (Im)possibilities of Cool Japanology," <em>The Futures of Cool Japanology, An International Symposium at the Center for the Study of World Civilizations</em>, Tokyo Institute of Technology, March 2010.
+  </li>
+
+  <li>
+    "Marking Deletion Under Censorship: The Continued Aesthetics of Redaction in Postwar Japan," <em>Censorship, Media, and Literary Culture In Japan, An International Symposium at Columbia U.</em>, March 2009.
+  </li>
+
+  <li>
+    "Otaku Readers vs. Otaku Consumers," <em>Graduate Seminar</em> in East Asian Studies, University of California, Berkeley, December 2008.
+  </li>
+
+  <li>
+    "Overrated Underwear," <em>Japanese Studies Series</em>, University of Massachusetts, Boston, November 2008.
+  </li>
+
+  <li>
+    "Tracks of Censorship: Preserving Marks of Suppression in Japan, 1923 to 1976," <em>Japan Forum, Reischauer Institute of Japanese Studies</em>, Harvard University, October 2008.
+  </li>
+
+  <li>
+    "Fun with Fuseji: Redaction Overdrive and the Archives of Japanese Censorship, 1923-1976," <em>Midwest Japan Seminar</em>, September 2008.
+  </li>
+
+  <li>
+    "Inside-out: Transnationalizing Asia" responding to "Challenging Borders in East Asia" panel, <em>Annual Meeting of the Association of Asian Studies</em>, Atlanta, April 2008.
+  </li>
+
+  <li>
+    "A History of <em>Fuseji</em>," <em>Japanese Studies Reading Group</em>, University of Wisconsin, Madison, October 2006.
+  </li>
+
+  <li>
+    Respondent, "Ideology, Culture, and Translation," <em>Society for Biblical Literature Conference</em>, Washington DC, October 2006.
+  </li>
+
+  <li>
+    Chair, "Opening Minds to East Asia: New Pedagogical Approaches for Transcending Regional and Disciplinary Boundaries," <em>Mid-Atlantic Association for Asian Studies Conference</em>, Seton Hall University, October 2006.
+  </li>
+
+  <li>
+    "The Radical Obscenities of Umehara Hokumei and Samuel Roth," <em>Comparative Literature Luncheon Series</em>, Penn State, January 2006.
+  </li>
+
+  <li>
+    "Shades of Pink: Crossing Erotic and Proletariat Literature in Interwar Japan," <em>Center for East Asian Studies</em>, University of Wisconsin, Madison, January 2005.
+  </li>
+
+  <li>
+    "Critical Ousia: Asian-American / American Asia," Respondent/Moderator paper, <em>Trans-Pacific Modernisms Symposium</em>, Princeton University, November 2005.
+  </li>
+
+</ul>
+
+<h3 id="conference-talks" class="section-block">Conference Talks</h3>
+<ul class="cv-list">
+
+  <li>
+    "Cross-Cultural Precariat Consciousness and the Absurdities of Literary Digital Labor," Association of Asian Studies (AAS), Vancouver, Canada, 2026.
+  </li>
+
+  <li>
+    "Posting the Future in the Present: How Imagination is Manifest," <em>Digital Age Symposium: "Global Asia in the Digital Age,"</em> University of Kansas, April 2025.
+  </li>
+
+  <li>
+    Discussant, "Japanese Environmental Cinema," Association of Asian Studies (AAS), Columbus, Ohio, March 2025.
+  </li>
+
+  <li>
+    "AI Exchange in Two Modes: From the End of Modern Literature to Glitch Poetics," <em>How AI is Changing Art and the Humanities, and To What Ends</em>, CUNY Graduate Center, October 2024.
+  </li>
+
+  <li>
+    "Posting the Future in the Present: Imagination as Manifest Destiny," <em>Imagined Futures in Japan and Beyond</em>, Deutsches Institut für Japanstudien [hosted by German Institute for Japanese Studies (DIJ) and The German Center For Research and Innovation (DWIH)], Tokyo, October 2024.
+  </li>
+
+  <li>
+    "In Karatani Kojin's Parallax Gap: Media Theory and AI Exchange at the End of Modern Literature," The End of Modern Literature? Plenary Panel, <em>Association of Literary Scholars, Critics, and Writers</em> Twenty-Seventh Annual Conference, Catholic University of America, Washington D.C., October 2024.
+  </li>
+
+  <li>
+    Chair, "Digital Technologies in Teaching and Research," Association of Asian Studies, Seattle, WA, March 2024.
+  </li>
+
+  <li>
+    Chair and Moderator, "Godzilla Plus: Nostalgia, History, and Culture in the Latest Giant from Japan," Late Breaking Session—<em>Association of Asian Studies</em>, Virtual, Seattle, WA, March 2024.
+  </li>
+
+  <li>
+    "The Pleasures of Mojibake: Bugs and Features of an Un-unified Code," <em>Unicode and the Humanities</em>, University of Pittsburgh, Pittsburgh, February 2-3, 2024.
+  </li>
+
+  <li>
+    "When humanism responded to replacement theory: or machinic autopoiesis in 1950s," European Association for Japanese Studies, Ghent, August 18, 2023.
+  </li>
+
+  <li>
+    "Singularity and Replacement Theory in 1950s Japan," <em>Association for Japanese Literary Studies Conference</em> (AJLS), University of Pittsburgh, May 2023.
+  </li>
+
+  <li>
+    "Fictional Truth and Libelous Fiction: How Twitter Remediates Violence to Bodies," <em>Writing on the Body, Writing with the Body</em>, Assoc. of Asian Studies (AAS) Conference, Boston, March 2023.
+  </li>
+
+  <li>
+    Discussant, <em>Literary and Media Censorship in China and Korea</em>, Assoc. of Asian Studies (AAS) Conference, Boston, March 2023.
+  </li>
+
+  <li>
+    "Viral Literature in Real-Time: Covid Cultures in Japanese Twitterature, or JLit in the Time of Corona," <em>Association for Japanese Literary Studies Conference</em> (AJLS), UCLA, May 2022.
+  </li>
+
+  <li>
+    "Miyabe Miyuki's New Media Theory," Special Panel in Commemoration of Sari Kawana, <em>Association for Japanese Literary Studies Conference</em> (AJLS), UCLA, May 2022.
+  </li>
+
+  <li>
+    "Remediating Videogames: Early Game Theory in Unlikely Places," <em>Replaying Japan</em> at University of Alberta, August 2021 [remotely delivered due to COVID-19].
+  </li>
+
+  <li>
+    "No Future, Not Now at Aichi Triennale 2019," on Freedom of Expression and Censorship in Contemporary Art in Japan: The Forced Closure of the Aichi Triennale 2019 panel at <em>College Art Association of America</em> (CAA), January 2021 [cancelled due to COVID-19].
+  </li>
+
+  <li>
+    "The Ecomimesis of Gamespace: Play, Addiction, and Violence," <em>Popular Culture Association</em>, Philadelphia, April 2020 [cancelled due to COVID-19].
+  </li>
+
+  <li>
+    "Stereomodernism, Empty SpaceTime, Superflat and Other Myths of Japanese Visuality," ACLA Chicago, March 2020 [cancelled due to COVID-19].
+  </li>
+
+  <li>
+    "SF Activism: Worldmaking of Global Speculative Fiction through Some Japanese Examples," 20th Century Japan Symposium, Yale University, April 2020 [cancelled due to COVID-19].
+  </li>
+
+  <li>
+    "The Prima Donna and the Copyright Hound: When Cultural Re-appropriation Becomes a Copywrong," Comparative Literature Luncheon, Penn State University, February 2020.
+  </li>
+
+  <li>
+    "Emoji and the Dream of a Universal Language," 2019 Teaching Asia Workshop In the Digital Age, Mid-Atlantic Regional Association of Asian Studies, Dickinson College, October 2019.
+  </li>
+
+  <li>
+    Panel Chair, "Gaming and Gamification in Asia," <em>Global Asias 5</em>, Penn State, April 2019.
+  </li>
+
+  <li>
+    "Introducing CineMAP," Digital Technologies Expo 2019: GIS and Spatial Analysis, Association of Asian Studies, Denver Colorado, 2019.
+  </li>
+
+  <li>
+    Panel Chair, "Animating Chinese Scripts in Transmedia Milieux: Part II: Performance and Political Participation," Association of Asian Studies, Denver Colorado, 2019.
+  </li>
+
+  <li>
+    "Serialized Japanese Twitterature," presenter and panel chair of <em>Social Media, Literary Transaction, and Nationalism in East Asian Literature</em>, Modern Language Association (MLA), Chicago, 2019.
+  </li>
+
+  <li>
+    "Transacting Comparative Studies with Other Disciplines and Units," MLA, Chicago, 2019.
+  </li>
+
+  <li>
+    "New Positivism, Same as the Old Positivism," Association of Japanese Literary Studies, University of California, Berkeley, September 2018.
+  </li>
+
+  <li>
+    Panel Chair, "Knowledge Production, Reading Practice, and Meaning Making in Mao's China: Part I, Cultural Production and Party Governance," Association of Asian Studies, Washington D.C., March 2018.
+  </li>
+
+  <li>
+    "True Crime / Copycat Crime: The Mediations of Representation and Reverse Mimesis," <em>Copycat Violence and the Media/Reality Continuum</em>, Association of Japanese Literary Studies (AJLS), Oberlin College, February 2018.
+  </li>
+
+  <li>
+    "The Frames of the Game: The Portal as Portable in <em>Steins;Gate</em>," <em>Replaying Japan</em>, The Strong National Museum of Play, Rochester, NY, August 2017.
+  </li>
+
+  <li>
+    "Emoji and the Question of Universal Language," <em>Emoticons, Emoji and Kaomoji -- The Transformation of Communication in the Digital Age</em>, Freie Universität, Berlin, June 2016.
+  </li>
+
+  <li>
+    "Not Everyone Poops: Private Language Icons, Social Media Fictions, and the Subtitle for the Real," <em>Literature's Boundary Work: New Media and New Textualities</em>, ACLA Harvard, March 2016.
+  </li>
+
+  <li>
+    "From Tears to Hugs: Touching Twitterature after 3-11," <em>The Japanese Digital: Recoding Culture from Literature to Television</em> panel, Association of Asian Studies, Seattle, April 2016.
+  </li>
+
+  <li>
+    "Letters, Quake, Media: Comparing 1923 with 2011," <em>Reframing 3.11: Cinema, Literature, and Media after Fukushima</em>, Berkeley, April 2014.
+  </li>
+
+  <li>
+    "Letters, Quakes, Media: The Public Correspondences of September 1923 and March 2011," MLA 2014.
+  </li>
+
+  <li>
+    "Freedom of expression and the Necessity of Disaster Education," <em>Between Cool and 3-11: Implications of Teaching Japan Today</em>, Elizabethtown College, April 2013.
+  </li>
+
+  <li>
+    "Multiplanar Stereoscopy and the Myths of Cartesian Difference," <em>Anamorph and Flatness: The Aesthetic Surfaces of World Literature, Philosophy and Cinema</em> seminar, ACLA, Toronto, March 2013.
+  </li>
+
+  <li>
+    "<em>Gulliver's</em> in Japan," Association of Japanese Literary Studies, Ohio State University, October 2012.
+  </li>
+
+  <li>
+    "Kissing Off-scene: Problem of Transwar Censorship in Japan," University of Nanjing, May 2012.
+  </li>
+
+  <li>
+    "Masquerading Heroes: Identity Politics in Cold War Japan," Association of Asian Studies Annual Meeting, Toronto, March 2012.
+  </li>
+
+  <li>
+    "The Poetics of Social Media: Twit Geiger Counter or Cultural Seismograph?" <em>Beyond Fukushima</em> seminar, ACLA, Providence, March 2012.
+  </li>
+
+  <li>
+    "Prehumanity in 3D: The Japanese Animal Through the Stereoscope," The Global and the Primitive Workshop, Penn State University, April 2011.
+  </li>
+
+  <li>
+    "Philip Roth in Japan: How to Finally Ghetto-ize the Wandering Jew in a Genre," ACLA, Vancouver, March 2011.
+  </li>
+
+  <li>
+    "Karatani in 3D," ACLA, Vancouver, 2011.
+  </li>
+
+  <li>
+    "Censors as Producers," Mid-Atlantic Regional Association of Asian Studies Conference, Penn State, October 2010.
+  </li>
+
+  <li>
+    Panel Chair, "The Sustaining Role of Literature in East Asia" and "Media of Suppression: Censorship and Circulation of Cultural Material in Modern Japan," Mid-Atlantic Regional Association of Asian Studies Conference, Penn State, October 2010.
+  </li>
+
+  <li>
+    "Quicktheory in Parallax" at the "Restrategizing Essentialism" Seminar, ACLA, New Orleans, April 2010.
+  </li>
+
+  <li>
+    "Cutting, Molding, Covering: Media-sensitive Suppression in Japan," Tradition & Innovation: The State of Book History Panel, Society for the History of Authorship, Reading, and Publishing (SHARP), U. of Toronto, June 2009.
+  </li>
+
+  <li>
+    Panel Chair: "Mapping the Trajectories of Japanese Theory" with Ian Condry, Miyadai Shinji, Azuma Hiroki, and Shion Kono. Association of Asian Studies Annual Meeting, Chicago, March 2009.
+  </li>
+
+  <li>
+    "<em>Panchira</em>: Packaging Postwar Desires in Film," Kinema Japan IX, Japanese Film Society, Harvard University, March 2009.
+  </li>
+
+  <li>
+    "The Unmentionables of Japanese Film: Getting Over White Underwear in <em>Roman Poruno</em>," Northeast Regional Conference Association of Asian Studies, October 2008.
+  </li>
+
+  <li>
+    "Mise en portable: Penetrating Frames of Cell Phone Novels," Association of Japanese Literary Studies, University of British Columbia, August 2008.
+  </li>
+
+  <li>
+    "Post-bubble Literary Recovery: Alternate Histories, Light Novels, and Cell Phone Melodramas," Association for Japanese Literary Studies, Princeton, November 2007.
+  </li>
+
+  <li>
+    "Parallax Views in Time: When to See Ahistorical Imagery and Imaginary Ahistoricisms," for "Transcritique" panel at Trans: A Visual Culture Conference at University of Wisconsin, October 2006.
+  </li>
+
+  <li>
+    "Laughing Historically: Humorous Dissent in Interwar Japan and America," Human Difference/La Différence Humaine seminar, ACLA, Princeton, March 2006.
+  </li>
+
+  <li>
+    "Literary Pre-Occupations: The Self-Censored Manuscripts of Ōoka Shōhei," Association of Asian Studies Annual Conference, San Francisco, March 2006.
+  </li>
+
+  <li>
+    "Genealogies of X-ing: Not to Mention Fuseji, Fug, and Other Fig Leaves . . ." Association for Japanese Literary Studies Conference, Dartmouth College, October 2005.
+  </li>
+
+  <li>
+    "The Obscure Obscenities of Umehara Hokumei: De-classifying Literature from Prewar Japan," Mid-Atlantic Regional Association of Asian Studies Conference, U. of Pennsylvania, October 2004.
+  </li>
+
+  <li>
+    "Archiving the Forbidden: War Responsibilities and Censored Literature," Association for Japanese Literary Studies Conference (AJLS), UCLA, November 2003.
+  </li>
+
+  <li>
+    "The Ins and Outs of Literary History: Canons of Transwar Censorship," Modern Japanese History Workshop, Waseda University (Tokyo), July 2002.
+  </li>
+
+  <li>
+    "Modernizing <em>Genji</em>: Translating the Classic for Contemporary Readers in Japan," International Convention of Asian Scholars, Humboldt University (Berlin), August 2001.
+  </li>
+
+  <li>
+    "Canon and Censor: How War Wounds Bodies of Writing," Authenticities East and West Symposium, Princeton University, Spring 2001.
+  </li>
+
+  <li>
+    "Yamada Bimyō's Historical Fictions & Literary History," Harvard East Asia Society 4th Annual Graduate Student Conference, Harvard University, April 2001.
+  </li>
+
+  <li>
+    "The Color of the Sky: Kuki Shūzō, Martin Heidegger, and Murakami Haruki," Eight Annual Graduate Student Conference for East Asian Studies, Columbia University, Feb. 1999.
+  </li>
+
+  <li>
+    "The One-Dimensional Fetish: Transgressions in Ōshima Nagisa's <em>In the Realm of the Senses</em>," Sixth Annual Graduate Student Conference for East Asian Studies, Columbia University, Feb. 1997.
+  </li>
+
+</ul>
+
+<h3 id="courses-taught" class="section-block">Courses Taught</h3>
+
+<h4>Pennsylvania State University</h4>
+
+<p><em>Undergraduate General Education Courses</em></p>
+<ul class="cv-list">
+  <li>Japanese Film and New Media</li>
+  <li>Crime and Detection</li>
+  <li>The World of Banned Books</li>
+  <li>Literary Humor</li>
+  <li>Virtual Worlds</li>
+  <li>Introduction to Asian Literature</li>
+  <li>The Short Story</li>
+</ul>
+
+<p><em>Undergraduate Upper-Level Courses</em></p>
+<ul class="cv-list">
+  <li>Seminar in Asian Studies: Graphic Novel in Asia</li>
+  <li>Japanese Visual Cultures: Beyond Anime</li>
+  <li>The World of Graphic Novels</li>
+  <li>Literary Criticism and Theory Senior Seminar</li>
+  <li>Japanese Film (in Japanese)</li>
+  <li>Translating Japanese Literature (in Japanese)</li>
+</ul>
+
+<p><em>Graduate Seminars</em></p>
+<ul class="cv-list">
+  <li>The Rise and Fall of Digital Media</li>
+  <li>What is Ecocriticism?</li>
+  <li>Global Marxisms</li>
+  <li>Comparative Method: Close Reading, Historically</li>
+  <li>Contemporary Theory: Mimesis</li>
+  <li>Restless Theory of the Rest</li>
+  <li>Of Media and Mimesis</li>
+  <li>Reality Fiction</li>
+  <li>Proseminar in Asian Studies: Asian Modernities/World Modernity</li>
+  <li>Literature Under Surveillance</li>
+</ul>
+
+<h4>Bowling Green State University</h4>
+<ul class="cv-list">
+  <li>Japanese Three</li>
+  <li>Introduction to Modern Japanese Literature</li>
+  <li>Contemporary Japanese Society</li>
+  <li>Postwar and Contemporary Pop Cultures in Japan</li>
+  <li>Japanese Film: The Virtual and the Real</li>
+</ul>
+
+<h4>Columbia University</h4>
+<ul class="cv-list">
+  <li>Topics in Comparative Literature: The World of Banned Books</li>
+</ul>
+
+<h4>Manhattanville College</h4>
+<ul class="cv-list">
+  <li>Introduction to Japanese Literature</li>
+</ul>
+
+<h4>Rutgers University</h4>
+<ul class="cv-list">
+  <li>Introduction to Japanese Film</li>
+</ul>
+
+<h3 id="awards-grants" class="section-block">Awards, Grants, Fellowships, and Honors</h3>
+
+<p><em>Individual Research</em></p>
+<ul class="cv-list">
+  <li>Woodrow Wilson International Center for Scholars, Fellow, 2022-2023.</li>
+  <li>Japan Foundation, Short Term Research Grant, Spring 2023.</li>
+  <li>Center for Humanities and Information (CHI), Faculty Fellow, Penn State University, Spring 2018.</li>
+  <li>Blend Digital Liberal Arts (BlendDLA), Penn State Faculty Teaching Development Seminar, 2018.</li>
+  <li>Institute for Arts and Humanities (IAH), Faculty Fellow, Penn State University, Fall 2015.</li>
+  <li>The Northeast Asia Council (NEAC), Short Term Research Travel Grant, Summer 2015.</li>
+  <li>Teaching Innovation Project (TIP) award in the Digital Humanities for CINEmap, Spring 2015.</li>
+  <li>Japan Foundation, Short Term Research Grant, Summer 2013.</li>
+  <li>First Book Prize, Weatherhead East Asia Institute, 2011-12.</li>
+  <li>Erasmus Award for Excellence in Mentoring and Student Advising, Penn State University, 2010.</li>
+  <li>Postdoctoral Fellowship, Reischauer Institute of Japanese Studies, Harvard, 2008-2009.</li>
+  <li>Golden Nugget for Excellence in Teaching, Students' Choice Award, Columbia University, 2006.</li>
+  <li>Postdoctoral Fellowship, Weatherhead East Asian Institute, Columbia University, 2005-2006.</li>
+  <li>Marion Levy Dissertation Completion Fellowship, 2004-2005.</li>
+  <li>Fulbright Hays Doctoral Dissertation Research Abroad (DDRA) Grant, 2002-2003.</li>
+  <li>Eric Kahler Summer Fellowship, Archival Research Grant, Summer 2003.</li>
+  <li>Blakemore Foundation Language Fellowship, 2001-2002.</li>
+  <li>DAAD German Academic Exchange Service Language Grant, Summer 2001.</li>
+  <li>Joseph E. Croft Summer Fellowship, Classical Studies Grant, Summer 2000.</li>
+  <li>Mary Cross Fellowship, Summer Fellowship, Summer 1999.</li>
+  <li>Council for Regional Studies, Center for International Studies Fellowship, Summer 1999.</li>
+  <li>East Asian Studies, Summer Fellowship, Summers 1998, 1999.</li>
+  <li>Bayard Henry, Class of 1876, Graduate Fellowship, 1998-1999.</li>
+  <li>Princeton University multiyear Ph.D. fellowship, Fall 1998-2003.</li>
+</ul>
+
+<p><em>Institutional and Group Grants</em></p>
+<ul class="cv-list">
+  <li>Primary Investigator, "CineMAP/Japan: Beta," Yannai Initiative, UCLA 2024.</li>
+  <li>Co-Investigator, CINEmap, Digital Humanities Grant, National Endowment for the Humanities (NEH), submitted 2018.</li>
+  <li>Co-Investigator, CINEmap, Digital Humanities Grant, Center for Humanities and Information (CHI), Penn State, funded 2016.</li>
+  <li>Lead Investigator, "Global Japan Project," Japan Foundation, Institutional Project Support Grant, PSU. Awarded Fall 2012. Funded through Spring 2018.</li>
+  <li>Japan Foundation, Arts and Culture, Small Grant, PSU, Spring 2009.</li>
+  <li>Japan Foundation, Film Series to BGSU in Spring 2008.</li>
+  <li>Chief Investigator, Title VI Undergraduate International Studies and Foreign Language Program Grant for expanding the Chinese section of the Asian Studies Program at BGSU Fall 2007.</li>
+</ul>
+
+<h3 id="service" class="section-block">Service to the Academic Community</h3>
+
+<p><em>Positions</em></p>
+<ul class="cv-list">
+  <li>2024-2025: <em>Interim Director</em>, Global and International Studies Program, Penn State.</li>
+  <li>2024 Spring: <em>Acting Head</em>, Department of Asian Studies, Penn State University.</li>
+  <li>2022-2025: <em>Book Review Editor</em>, <em>Comparative Literature Studies</em> (CLS).</li>
+  <li>2015-2025: <em>Associate Editor</em>, <em>Comparative Literature Studies</em> (CLS).</li>
+  <li>2021-2024: <em>Associate Director</em>, Center for Humanities and Information, Penn State University.</li>
+  <li>2016-2022: <em>Co-Director</em>, The Global and International Studies Program, Penn State University.</li>
+  <li>2014-2020: <em>Faculty Senator</em>, Faculty Senate of Penn State University.</li>
+  <li>2014-2015: <em>Co-Director of Undergraduate Studies</em>, Global and International Studies, Penn State U.</li>
+  <li>2013-2015: <em>Director of Undergraduate Studies</em>, Department of Comparative Literature, Penn State U.</li>
+</ul>
+<p><em>Events</em></p>
+<ul class="cv-list">
+  <li>Host, Comparative Literature Graduate Student Job Seekers Workshop Series, Penn State, 2024-2026.</li>
+  <li>Co-Host, <em>CineMAP Japan Beta, A Symposium: Location, Location, Location</em>, University of Wisconsin-Madison, Spring 2024.</li>
+  <li>Director, <em>Digital Asias: Summer Institute</em>, Department of Asian Studies, Penn State, 2019.</li>
+  <li>Co-organizer, <em>Association of Japanese Literary Studies</em> (AJLS) Annual Conference, Penn State University, 2016.</li>
+  <li>Co-organizer, <em>Comparative Literature Luncheon</em>, Weekly Lecture Series, Penn State University, 2010-2015.</li>
+  <li>Co-curator and co-organizer, "Forging Alliances" exhibition at the Palmer Art Museum, Penn State University, Spring 2014.</li>
+  <li>Co-organizer (with Shuang Shen), "New Media Literacy Workshop," Penn State University, Spring 2013. Featured Speakers: Marie Laure-Ryan, Alex Zahlten, Joshua Neves, Kukhe Choo, and Heather Inwood.</li>
+  <li>Committee Member, <em>Mid-Atlantic Regional Association of Asian Studies</em> (MAR/AAS) Conference, Penn State University, 2010.</li>
+  <li>Seminar Chair, "Restrategizing Essentialism," <em>ACLA</em>, New Orleans, April 2010.</li>
+  <li>Steering Committee Member, "The Futures of Cool Japanology: An International Symposium," Center for Study of World Civilizations, Tokyo Institute of Technology, Spring 2010.</li>
+  <li>Organizer, Lecture Series, "Mapping the Trajectories of Japanese Theory," Penn State University, University of Michigan, and University of Texas Ann Arbor, Spring 2009. Speakers: Azuma Hiroki, Miyadai Shinji, Ian Condry.</li>
+  <li>Curator, Japanese Film Festival, BGSU, Spring 2007.</li>
+  <li>Organizer and Liaison, Azuma Hiroki Lecture, Donald Keene Center, Columbia, Fall 2005.</li>
+  <li>Organizer, Lecture Series, "East Asia and the Future of Comparative Literature," Princeton, Spring 2004. Speakers: Masao Miyoshi, Haun Saussy, Christopher Hill, Christopher Bush.</li>
+  <li>Organizer, Graduate Symposium, "Authenticities: East and West," Princeton, Spring 2001. Speakers: Karatani Kōjin, Rey Chow, Robert Wardy, Earl Miner.</li>
+  <li>Co-founder, Society for Intercultural Comparative Studies, Fall 2000.</li>
+  <li>Co-coordinator, Asian Film Festival at Princeton, Spring 2000.</li>
+</ul>
+
+<p><em>Committees</em></p>
+<ul class="cv-list">
+  <li>Member, University-wide Immediate Tenure Committee, 2023-24.</li>
+  <li>Member, Center for Global Studies Advisory Board, 2022-23.</li>
+  <li>Member, Committee on Committees and Rules, Faculty Senate, 2016-2020.</li>
+  <li>Graduate Committee Member, Department of Comparative Literature, Penn State, 2018-2020.</li>
+  <li>Chair, Asian Studies Head Search Committee, Fall 2019.</li>
+  <li>Chair, Global and International Studies Search Committee, Fall 2019.</li>
+  <li>Chair, Tenure-track Assistant Professor Search Committee for Korean Literature, Fall-Spring 2019.</li>
+  <li>Chair, Teaching Faculty Professor, Search Committee for Global and International Studies, Fall-Spring 2019.</li>
+  <li>Member, Tenure-track Assistant Professor Search Committee for Russian, Fall-Spring 2019.</li>
+  <li>Member, Academic Integrity Committee, College of Liberal Arts, Penn State, 2010-2016.</li>
+  <li>Member, Tenure-track Assistant Professor Search Committee for Korean Literature, Fall-Spring 2015.</li>
+  <li>Member, Tenure-track Assistant Professor Search Committee for Chinese Literature, Fall-Spring 2014.</li>
+  <li>Undergraduate Committee Member, Department of Comparative Literature, Penn State, 2010-2013.</li>
+  <li>Secretary, Faculty Advisory Committee on Information and Technology, BGSU, 2007-2008.</li>
+  <li>Reviewer, Distinguished Thesis Award, Graduate School, BGSU 2007.</li>
+  <li>Budget and Salary Committee, Dept. German, Russian, and East Asian Languages, BGSU, Fall 2006-2008.</li>
+  <li>Library Acquisition Liaison, German, Russian, and East Asian Languages, BGSU, Fall 2006-2008.</li>
+  <li>Department of Comparative Literature Liaison, McGraw Teaching Center, Princeton, Fall 2004.</li>
+  <li>Comparative Literature Graduate Liaison Committee, Princeton, 2000-2001.</li>
+</ul>
+
+<p><em>Field</em></p>
+<ul class="cv-list">
+  <li>Editorial Committee Member, <em>Journal of Waseda International House of Literature</em>, Waseda University, 2025-2027.</li>
+  <li>Mentor, "Overcoming the Mid-Career Slump: Balancing Service, Teaching, and the Second Book Project," Association of Asian Studies, 2024.</li>
+  <li>Editorial Collective Member, <em>Verge: Studies in Global Asias</em>, 2015-present.</li>
+  <li>Mentor, "Getting your article or book published," Association of Asian Studies, 2023.</li>
+  <li>Chair, John Whitney Hall Prize Committee, Association of Asian Studies (AAS), 2019-2021.</li>
+  <li>Chair, LLC East Asia Forum, Modern Language Association (MLA), 2021.</li>
+  <li>Elected Member, LLC East Asia Forum, Modern Language Association (MLA), 2016-2021.</li>
+  <li>Hosted Fulbright Scholar, Lovro Škopljanac of University of Zagreb at Penn State, 2016-17.</li>
+  <li>Bibliographer, Festschriften section of MLA Bibliography, 2007-2008.</li>
+  <li>Book Reviewer, for Cornell University Press, 2024, 2020; University of Michigan Press 2023; Duke University Press, 2015-2016, 2022; University of California Press, Fall 2012-2014, 2022; University of Minnesota Press, 2009, 2020; Weatherhead East Asia Series, Columbia University, Fall 2014.</li>
+  <li>Peer Referee, <em>ASAP</em>, 2016, 2019, 2020; <em>Book History</em>, 2024; <em>Comparative Literature Studies</em>, 2009, 2016; <em>Comparative Literature</em>, 2012, 2019; <em>Humanities</em>, 2022; <em>Japan Forum</em>, 2012; <em>The Journal of Asian Studies</em>, 2023; <em>Journal of Japanese Studies</em>, 2015, 2022; <em>Media History</em>, 2024; <em>Mosaic, an interdisciplinary critical journal</em>, 2016; <em>PMLA</em>, Fall 2007, 2016, 2018, 2020; <em>Situations: Cultural Studies in the Asian Context</em> 2022; <em>Slavic and East European Journal</em>, 2010; <em>Theory, Culture & Society</em>, 2008, 2022.</li>
+</ul>
+
+<p><em>Advising</em></p>
+<ul class="cv-list">
+  <li>Faculty Advisor, Honors Majors in Global Studies, Schreyer Honors College, PSU, 2016-2022, 2024-2025.</li>
+  <li>Faculty Advisor, Honors Majors in Japanese, Schreyer Honors College, Penn State, 2009-2022.</li>
+  <li>Faculty Advisor, Anime Club, Penn State University, 2021-present.</li>
+  <li>Faculty Advisor, Minors in Japanese, Penn State University, 2009-2011.</li>
+  <li>Faculty Advisor, Anime Club, Bowling Green State University, 2006-2008.</li>
+</ul>
+
+</div>
+</div>
+
+<!-- Back to top button -->
+<a href="#" class="back-to-top" id="backToTop">↑</a>
+
+<script>
+// Back to top button functionality
+window.addEventListener('scroll', function() {
+  var backToTop = document.getElementById('backToTop');
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+
+document.getElementById('backToTop').addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
