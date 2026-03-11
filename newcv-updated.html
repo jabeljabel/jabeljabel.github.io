@@ -254,9 +254,9 @@
     }
   </style>
   <!-- Analytics: Umami (privacy-friendly, no cookies) -->
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="ce9a85af-8f2c-44ce-9ee8-5daed99f041b"></script>
   <!-- Analytics: GoatCounter (lightweight backup) -->
-  <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://jabeljabel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -1380,6 +1380,23 @@ document.getElementById('backToTop').addEventListener('click', function(e) {
   e.preventDefault();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+</script>
+
+<!-- IP Geolocation → Umami custom event -->
+<script>
+fetch("https://ipinfo.io/json?token=992f2d449061e3")
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(typeof umami !== "undefined"){
+      umami.track("geolocation", {
+        country: d.country || "",
+        region: d.region || "",
+        city: d.city || "",
+        org: d.org || ""
+      });
+    }
+  })
+  .catch(function(){});
 </script>
 
 </body>

@@ -320,9 +320,9 @@
         }
     </style>
     <!-- Analytics: Umami (privacy-friendly, no cookies) -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ce9a85af-8f2c-44ce-9ee8-5daed99f041b"></script>
     <!-- Analytics: GoatCounter (lightweight backup) -->
-    <script data-goatcounter="https://YOURSITE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://jabeljabel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -373,7 +373,8 @@
             <div class="project-card">
                 <h3>State of the Field</h3>
                 <p>A quantitative network analysis of Japanese Literary Studies as an academic discipline—tracing dissertation networks, conference data, and citation patterns across 7,900+ dissertations and 5,100+ scholars.</p>
-                <a href="https://jabeljabel.github.io/japanese-lit-studies/" target="_blank">Explore visualizations →</a>
+                <a href="https://jabeljabel.github.io/japanese-lit-studies/" target="_blank">Explore visualizations →</a><br>
+                <a href="https://jabeljabel.github.io/japanese-lit-studies/new_positivism_reader.html#intro" target="_blank">Read the paper →</a>
             </div>
             <div class="project-card">
                 <h3>Social Media Fiction</h3>
@@ -494,6 +495,41 @@
 <footer>
     <p>&copy; 2026 Jonathan E. Abel. All rights reserved.</p>
 </footer>
+
+<!-- Default Statcounter code for jea page
+https://jabeljabel.github.io -->
+<script type="text/javascript">
+var sc_project=13210072;
+var sc_invisible=1;
+var sc_security="d4a4489f";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13210072/0/d4a4489f/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<!-- IP Geolocation → Umami custom event -->
+<script>
+fetch("https://ipinfo.io/json?token=992f2d449061e3")
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(typeof umami !== "undefined"){
+      umami.track("geolocation", {
+        country: d.country || "",
+        region: d.region || "",
+        city: d.city || "",
+        org: d.org || ""
+      });
+    }
+  })
+  .catch(function(){});
+</script>
 
 </body>
 </html>
