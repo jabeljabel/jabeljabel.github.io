@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Hours | Jonathan E. Abel</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #4a4a4a;
+            --color-accent: #2c5282;
+            --color-accent-hover: #1a365d;
+            --color-border: #e2e8f0;
+            --color-hover: #f7fafc;
+            --font-serif: Georgia, Times New Roman, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-text: #e8e8e8;
+                --color-text-light: #a0a0a0;
+                --color-accent: #60a5fa;
+                --color-accent-hover: #93c5fd;
+                --color-border: #2d3748;
+                --color-hover: #1a202c;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav {
+                background-color: rgba(15, 20, 25, 0.95);
+            }
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--color-accent-hover);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+    <!-- Analytics: Umami (privacy-friendly, no cookies) -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ce9a85af-8f2c-44ce-9ee8-5daed99f041b"></script>
+    <!-- Analytics: GoatCounter (lightweight backup) -->
+    <script data-goatcounter="https://jabeljabel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">Jonathan E. Abel</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#research">Research</a></li>
+            <li><a href="index.html#books">Books</a></li>
+            <li><a href="index.html#teaching">Teaching</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="newcv-updated.html">CV</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <section>
+        <h2>Office Hours</h2>
+        <p>Sign up for office hours using the calendar below. If you need to meet outside of scheduled times, please email me directly.</p>
+
+        <div style="margin-top: 1.5rem;">
+            <iframe src="https://cal.com/j-abel-qjx0xk/office-hours-with-dr.-abel?embed=true" width="100%" height="900" frameborder="0"></iframe>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to main page</a>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Jonathan E. Abel. All rights reserved.</p>
+</footer>
+
+<!-- Default Statcounter code for jea page
+https://jabeljabel.github.io -->
+<script type="text/javascript">
+var sc_project=13210072;
+var sc_invisible=1;
+var sc_security="d4a4489f";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13210072/0/d4a4489f/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<!-- IP Geolocation → Umami custom event -->
+<script>
+fetch("https://ipinfo.io/json?token=992f2d449061e3")
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(typeof umami !== "undefined"){
+      umami.track("geolocation", {
+        country: d.country || "",
+        region: d.region || "",
+        city: d.city || "",
+        org: d.org || ""
+      });
+    }
+  })
+  .catch(function(){});
+</script>
+
+</body>
+</html>
