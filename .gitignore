@@ -1,3 +1,6 @@
+# Claude Code project config
+CLAUDE.md
+
 # Archive of old site versions, scripts, and docs
 _archive/
 
@@ -11,3 +14,5 @@ Thumbs.db
 # Large project subfolders (deployed separately)
 cinemapjbeta/
 japanese-lit-studies/
+courses-2015-2026
+iweb-recovered
