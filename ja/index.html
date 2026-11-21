@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan E. Abel | 日本語</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2c5282">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1419">
+    <link rel="canonical" href="https://jabeljabel.github.io/ja/">
+    <link rel="alternate" hreflang="en" href="https://jabeljabel.github.io/">
+    <link rel="alternate" hreflang="ja" href="https://jabeljabel.github.io/ja/">
+    <link rel="alternate" hreflang="x-default" href="https://jabeljabel.github.io/">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #4a4a4a;
+            --color-accent: #2c5282;
+            --color-accent-hover: #1a365d;
+            --color-border: #e2e8f0;
+            --color-hover: #f7fafc;
+            --font-serif: Georgia, Times New Roman, serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #0f1419;
+                --color-text: #e8e8e8;
+                --color-text-light: #a0a0a0;
+                --color-accent: #60a5fa;
+                --color-accent-hover: #93c5fd;
+                --color-border: #2d3748;
+                --color-hover: #1a202c;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.8;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            font-size: 16px;
+        }
+
+        :lang(ja) {
+            font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
+        }
+
+        /* SITE-NAV:START (same block on every top-level page) */
+        html{scroll-behavior:smooth}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+        a,a:visited{color:var(--color-accent);text-decoration:none}
+        a{border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+        a:hover{color:var(--color-accent-hover);border-bottom-color:currentColor}
+        a:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+        nav{position:sticky;top:0;background-color:rgba(255,255,255,.95);border-bottom:1px solid var(--color-border);padding:1rem 0;z-index:100;backdrop-filter:blur(10px)}
+        @media (prefers-color-scheme:dark){nav{background-color:rgba(15,20,25,.95)}}
+        .nav-container{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+        .nav-brand,.nav-brand:visited{font-size:1.1rem;font-weight:600;color:var(--color-text);white-space:nowrap;border:0}
+        .nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0;min-width:0}
+        .nav-links a,.nav-links a:visited{color:var(--color-text-light);font-size:.95rem;white-space:nowrap;border:0}
+        .nav-links a:hover,.nav-links a.active,.nav-links a[aria-current="page"]{color:var(--color-accent)}
+        .nav-links a[aria-current="page"]{font-weight:600}
+        @media (max-width:900px){nav{padding:.75rem 0}.nav-container{padding:0 1rem;gap:1rem}.nav-brand{font-size:1rem}
+        .nav-links{gap:1.25rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.25rem 1.5rem .25rem 0;-webkit-mask-image:linear-gradient(to right,#000 85%,transparent);mask-image:linear-gradient(to right,#000 85%,transparent)}
+        .nav-links::-webkit-scrollbar{display:none}}
+        /* SITE-NAV:END */
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page {
+            max-width: 800px;
+            padding: 4rem 0 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+        }
+
+        .placeholder {
+            border: 1px dashed var(--color-border);
+            background-color: var(--color-hover);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-text-light);
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .page {
+                padding-top: 2.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <!-- Analytics: Umami (privacy-friendly, no cookies) -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ce9a85af-8f2c-44ce-9ee8-5daed99f041b"></script>
+    <!-- Analytics: GoatCounter (lightweight backup) -->
+    <script data-goatcounter="https://jabeljabel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="../index.html" class="nav-brand">Jonathan E. Abel</a>
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#news">News</a></li>
+            <li><a href="../index.html#research">Research</a></li>
+            <li><a href="../index.html#books">Books</a></li>
+            <li><a href="../index.html#teaching">Teaching</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../cv.html">CV</a></li>
+            <li><a href="index.html" aria-current="page">日本語</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <section class="page">
+        <h1 lang="en">Jonathan E. Abel</h1>
+        <p class="title" lang="en">Professor of Comparative Literature and Japanese Studies<br>Penn State University</p>
+
+        <!-- TODO(owner): replace this box with the Japanese biography (to be written or approved by the owner; do not machine-translate). -->
+        <div class="placeholder" lang="en">
+            <p><strong>Placeholder:</strong> Japanese biography in preparation. <a href="../index.html">Read the English site →</a></p>
+        </div>
+
+        <p lang="en"><a href="https://sekai.nichibun.ac.jp/researcher/edit/20041" target="_blank" rel="noopener">NIMOU (Nichibunken) researcher profile</a> · <a href="mailto:jea17@psu.edu">jea17@psu.edu</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Jonathan E. Abel. All rights reserved.</p>
+</footer>
+
+<!-- Default Statcounter code for jea page
+https://jabeljabel.github.io -->
+<script type="text/javascript">
+var sc_project=13210072;
+var sc_invisible=1;
+var sc_security="d4a4489f";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13210072/0/d4a4489f/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+<!-- IP Geolocation → Umami custom event -->
+<script>
+fetch("https://ipinfo.io/json?token=992f2d449061e3")
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(typeof umami !== "undefined"){
+      umami.track("geolocation", {
+        country: d.country || "",
+        region: d.region || "",
+        city: d.city || "",
+        org: d.org || ""
+      });
+    }
+  })
+  .catch(function(){});
+</script>
+
+</body>
+</html>

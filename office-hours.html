@@ -7,7 +7,8 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#2c5282">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2c5282">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1419">
     <style>
         :root {
             --color-bg: #ffffff;
@@ -47,56 +48,25 @@
             font-size: 16px;
         }
 
-        nav {
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--color-border);
-            padding: 1rem 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            nav {
-                background-color: rgba(15, 20, 25, 0.95);
-            }
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-brand {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--color-text);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--color-text-light);
-            text-decoration: none;
-            transition: color 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--color-accent);
-        }
+        /* SITE-NAV:START (same block on every top-level page) */
+        html{scroll-behavior:smooth}
+        @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+        a,a:visited{color:var(--color-accent);text-decoration:none}
+        a{border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+        a:hover{color:var(--color-accent-hover);border-bottom-color:currentColor}
+        a:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
+        nav{position:sticky;top:0;background-color:rgba(255,255,255,.95);border-bottom:1px solid var(--color-border);padding:1rem 0;z-index:100;backdrop-filter:blur(10px)}
+        @media (prefers-color-scheme:dark){nav{background-color:rgba(15,20,25,.95)}}
+        .nav-container{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;gap:1.5rem}
+        .nav-brand,.nav-brand:visited{font-size:1.1rem;font-weight:600;color:var(--color-text);white-space:nowrap;border:0}
+        .nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0;min-width:0}
+        .nav-links a,.nav-links a:visited{color:var(--color-text-light);font-size:.95rem;white-space:nowrap;border:0}
+        .nav-links a:hover,.nav-links a.active,.nav-links a[aria-current="page"]{color:var(--color-accent)}
+        .nav-links a[aria-current="page"]{font-weight:600}
+        @media (max-width:900px){nav{padding:.75rem 0}.nav-container{padding:0 1rem;gap:1rem}.nav-brand{font-size:1rem}
+        .nav-links{gap:1.25rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:.25rem 1.5rem .25rem 0;-webkit-mask-image:linear-gradient(to right,#000 85%,transparent);mask-image:linear-gradient(to right,#000 85%,transparent)}
+        .nav-links::-webkit-scrollbar{display:none}}
+        /* SITE-NAV:END */
 
         .container {
             max-width: 1100px;
@@ -114,14 +84,15 @@
             font-weight: 600;
         }
 
-        a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.2s;
+        .calendar-embed {
+            margin-top: 1rem;
+            min-height: 640px;
         }
 
-        a:hover {
-            color: var(--color-accent-hover);
+        .calendar-embed iframe {
+            display: block;
+            width: 100%;
+            border: 0;
         }
 
         .back-link {
@@ -136,16 +107,13 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+        @media (max-width: 900px) {
+            .container {
+                padding: 0 1rem;
             }
 
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
+            section {
+                padding: 2rem 0;
             }
         }
     </style>
@@ -161,11 +129,13 @@
         <a href="index.html" class="nav-brand">Jonathan E. Abel</a>
         <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#news">News</a></li>
             <li><a href="index.html#research">Research</a></li>
             <li><a href="index.html#books">Books</a></li>
-            <li><a href="index.html#teaching">Teaching</a></li>
+            <li><a href="index.html#teaching" class="active">Teaching</a></li>
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="cv.html">CV</a></li>
+            <li><a href="ja/index.html" lang="ja" hreflang="ja">日本語</a></li>
         </ul>
     </div>
 </nav>
@@ -175,9 +145,19 @@
         <h2>Office Hours</h2>
         <p>Sign up for office hours using the calendar below. If you need to meet outside of scheduled times, please email me directly.</p>
 
-        <div style="margin-top: 1.5rem;">
-            <iframe src="https://cal.com/j-abel-qjx0xk/office-hours-with-dr.-abel?embed=true" width="100%" height="900" frameborder="0"></iframe>
-        </div>
+        <!-- Cal.com inline embed: the script sizes the calendar to its content, so there is no empty block above it.
+             Times show in each visitor's own timezone (Cal.com's default). -->
+        <div id="cal-office-hours" class="calendar-embed"></div>
+        <noscript><p><a href="https://cal.com/j-abel-qjx0xk/office-hours-with-dr.-abel">Open the office-hours calendar on Cal.com →</a></p></noscript>
+        <script>
+        (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "office-hours", { origin: "https://cal.com" });
+        Cal.ns["office-hours"]("inline", {
+            elementOrSelector: "#cal-office-hours",
+            calLink: "j-abel-qjx0xk/office-hours-with-dr.-abel",
+            config: { layout: "month_view", theme: "auto" }
+        });
+        </script>
 
         <a href="index.html" class="back-link">← Back to main page</a>
     </section>
