@@ -226,14 +226,20 @@
             margin-bottom: 0;
         }
 
-        .headshot {
+        .hero-cover,
+        .hero-cover:hover {
             flex-shrink: 0;
-            width: 180px;
+            display: block;
+            border: 0;
+        }
+
+        .hero-cover img {
+            display: block;
+            width: 120px;
             height: 180px;
-            border-radius: 8px;
             object-fit: cover;
-            background-color: var(--color-hover);
-            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .hero h1 {
@@ -489,9 +495,9 @@
                 gap: 1.25rem;
             }
 
-            .headshot {
-                width: 160px;
-                height: 160px;
+            .hero-cover img {
+                width: 100px;
+                height: 150px;
             }
 
             .book-item {
@@ -538,8 +544,28 @@
     <section class="hero" id="about">
         <div class="hero-content">
             <div class="hero-header">
-                <!-- TODO(owner): replace assets/img/headshot.jpg (currently a neutral placeholder) with a real photo, about 400×400px -->
-                <img class="headshot" src="assets/img/headshot.jpg" alt="Portrait of Jonathan E. Abel" width="180" height="180">
+                <!-- A different book cover on each page load; the list is the covers in the Books section -->
+                <a href="#books" class="hero-cover"><img id="hero-cover-img" src="assets/img/newreal.jpg" alt="Cover of The New Real" width="120" height="180"></a>
+                <script>
+                (function () {
+                    var covers = [
+                        ['newreal.jpg', 'The New Real'],
+                        ['redacted.jpg', 'Redacted'],
+                        ['MJLS.jpg', 'Modern Japanese Literary Studies'],
+                        ['karatani-eml.jpg', "Kojin Karatani's The End of Modern Literature"],
+                        ['infokey.jpg', 'Information: Keywords'],
+                        ['NAKara.jpg', 'Nation and Aesthetics'],
+                        ['otaku.jpg', "Otaku: Japan's Database Animals"]
+                    ];
+                    var last = -1, i;
+                    try { last = +sessionStorage.getItem('heroCover'); } catch (e) {}
+                    do { i = Math.floor(Math.random() * covers.length); } while (i === last);
+                    try { sessionStorage.setItem('heroCover', i); } catch (e) {}
+                    var img = document.getElementById('hero-cover-img');
+                    img.src = 'assets/img/' + covers[i][0];
+                    img.alt = 'Cover of ' + covers[i][1];
+                })();
+                </script>
                 <div>
                     <h1>Jonathan E. Abel</h1>
                     <p class="title">Professor of Comparative Literature and Japanese Studies<br>Penn State University</p>
